@@ -1,5 +1,6 @@
 import { Trans } from '@lingui/macro'
 import { useWeb3React } from '@web3-react/core'
+import logo from 'assets/images/logo.png'
 import Web3Status from 'components/Web3Status'
 import { chainIdToBackendName } from 'graphql/data/util'
 import { useIsNftPage } from 'hooks/useIsNftPage'
@@ -11,7 +12,7 @@ import { UniIcon } from 'nft/components/icons'
 import { useProfilePageState } from 'nft/hooks'
 import { ProfilePageStateType } from 'nft/types'
 import { ReactNode } from 'react'
-import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-dom'
+import { Link, NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-dom'
 import { shouldDisableNFTRoutesAtom } from 'state/application/atoms'
 import styled from 'styled-components/macro'
 
@@ -27,6 +28,11 @@ const Nav = styled.nav`
   width: 100%;
   height: ${({ theme }) => theme.navHeight}px;
   z-index: 2;
+`
+
+const StyledImage = styled.img`
+  width: 100%;
+  height: auto;
 `
 
 interface MenuItemProps {
@@ -98,6 +104,9 @@ const Navbar = ({ blur }: { blur: boolean }) => {
         <Box display="flex" height="full" flexWrap="nowrap">
           <Box className={styles.leftSideContainer}>
             <Box className={styles.logoContainer}>
+              <Link to="/?intro=true">
+                <StyledImage src={logo} />
+              </Link>
               <UniIcon
                 width="48"
                 height="48"

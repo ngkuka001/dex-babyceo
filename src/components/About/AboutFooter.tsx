@@ -4,9 +4,8 @@ import styled from 'styled-components/macro'
 import { BREAKPOINTS, ExternalLink, StyledRouterLink } from 'theme'
 import { useIsDarkMode } from 'theme/components/ThemeToggle'
 
+import logo from '../../assets/images/logo.png'
 import { DiscordIcon, GithubIcon, TwitterIcon } from './Icons'
-import darkUnicornImgSrc from './images/unicornEmbossDark.png'
-import lightUnicornImgSrc from './images/unicornEmbossLight.png'
 
 const Footer = styled.div`
   display: flex;
@@ -43,7 +42,7 @@ const LogoSectionBottom = styled(LogoSection)`
 `
 
 const StyledLogo = styled.img`
-  width: 72px;
+  width: auto;
   height: 72px;
   display: none;
 
@@ -113,7 +112,7 @@ const LogoSectionContent = () => {
   const isDarkMode = useIsDarkMode()
   return (
     <>
-      <StyledLogo src={isDarkMode ? darkUnicornImgSrc : lightUnicornImgSrc} alt="Uniswap Logo" />
+      <StyledLogo src={logo} alt="Uniswap Logo" />
       <SocialLinks>
         <SocialLink href="https://discord.gg/FCfyBSbCU5" target="_blank" rel="noopener noreferrer">
           <DiscordIcon size={32} />
@@ -131,7 +130,7 @@ const LogoSectionContent = () => {
           <GithubIcon size={32} />
         </SocialLink>
       </SocialLinks>
-      <Copyright>© {new Date().getFullYear()} Uniswap Labs</Copyright>
+      <Copyright>© {new Date().getFullYear()} BabyCEO Labs</Copyright>
     </>
   )
 }
